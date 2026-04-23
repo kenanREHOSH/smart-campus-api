@@ -1,0 +1,19 @@
+package com.smartcampus.mapper;
+
+import com.smartcampus.exception.RoomNotEmptyException;
+import com.smartcampus.model.ErrorMessage;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.ext.ExceptionMapper;
+import jakarta.ws.rs.ext.Provider;
+
+@Provider
+public class RoomNotEmptyExceptionMapper implements ExceptionMapper<RoomNotEmptyException> {
+    @Override
+    public Response toResponse(RoomNotEmptyException exception) {
+        ErrorMessage errorMessage = new ErrorMessage(exception.getMessage(), 409);
+        return Response.status(Response.Status.CONFLICT)
+                .entity(errorMessage)
+                .type("application/json")
+                .build();
+    }
+}
