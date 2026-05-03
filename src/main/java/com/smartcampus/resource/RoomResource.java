@@ -52,7 +52,7 @@ public class RoomResource {
         // Check if there are any sensors in the room
         boolean hasSensors = dataStore.getAllSensors().stream()
                 .anyMatch(sensor -> id.equals(sensor.getRoomId()));
-                
+
         if (hasSensors) {
             throw new RoomNotEmptyException("Cannot delete room: sensors are assigned to it.");
         }
