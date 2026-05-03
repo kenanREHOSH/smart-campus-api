@@ -1,11 +1,14 @@
 package com.smartcampus.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class Room {
     private String id;
     private String name;
     private int capacity;
+    private List<String> sensorIds = new ArrayList<>();
 
     public Room() {
         this.id = UUID.randomUUID().toString();
@@ -39,5 +42,13 @@ public class Room {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public List<String> getSensorIds() {
+        return sensorIds;
+    }
+
+    public void setSensorIds(List<String> sensorIds) {
+        this.sensorIds = sensorIds;
     }
 }
