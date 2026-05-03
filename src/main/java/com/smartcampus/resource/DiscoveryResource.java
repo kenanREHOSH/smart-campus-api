@@ -17,6 +17,7 @@ public class DiscoveryResource {
         Map<String, Object> apiInfo = new HashMap<>();
         apiInfo.put("title", "Smart Campus API");
         apiInfo.put("version", "1.0");
+        apiInfo.put("contact", "admin@smartcampus.westminster.ac.uk");
         
         Map<String, String> links = new HashMap<>();
         links.put("discovery", "/api/v1");
