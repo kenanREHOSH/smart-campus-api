@@ -7,15 +7,15 @@ import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
 
 @Provider
-public class GlobalExceptionMapper implements ExceptionMapper<Exception> {
+public class GlobalExceptionMapper implements ExceptionMapper<Throwable> {
     @Override
-    public Response toResponse(Exception exception) {
+    public Response toResponse(Throwable exception) {
         if (exception instanceof WebApplicationException) {
             WebApplicationException webEx = (WebApplicationException) exception;
             return webEx.getResponse();
         }
         
-        ErrorMessage errorMessage = new ErrorMessage("Internal Server Error: " + exception.getMessage(), 500);
+        ErrorMessage errorMessage = new ErrorMessage("Internal Server Error: An unexpected error occurred.", 500);
         return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                 .entity(errorMessage)
                 .type("application/json")
