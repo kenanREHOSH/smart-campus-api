@@ -1,20 +1,19 @@
 package com.smartcampus.model;
 
-import java.time.Instant;
 import java.util.UUID;
 
 public class SensorReading {
     private String id;
     private String sensorId;
-    private Double value;
-    private Instant timestamp;
+    private double value;
+    private long timestamp;
 
     public SensorReading() {
         this.id = UUID.randomUUID().toString();
-        this.timestamp = Instant.now();
+        this.timestamp = System.currentTimeMillis();
     }
 
-    public SensorReading(String sensorId, Double value) {
+    public SensorReading(String sensorId, double value) {
         this();
         this.sensorId = sensorId;
         this.value = value;
@@ -36,19 +35,19 @@ public class SensorReading {
         this.sensorId = sensorId;
     }
 
-    public Double getValue() {
+    public double getValue() {
         return value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(double value) {
         this.value = value;
     }
 
-    public Instant getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Instant timestamp) {
+    public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
     }
 }

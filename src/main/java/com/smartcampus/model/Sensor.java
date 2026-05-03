@@ -6,10 +6,12 @@ public class Sensor {
     private String id;
     private String roomId;
     private String type; // e.g., CO2, TEMPERATURE, OCCUPANCY
+    private String status; // "ACTIVE", "MAINTENANCE", or "OFFLINE"
     private Double currentValue;
 
     public Sensor() {
         this.id = UUID.randomUUID().toString();
+        this.status = "ACTIVE"; // default status
     }
 
     public Sensor(String roomId, String type) {
@@ -40,6 +42,14 @@ public class Sensor {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Double getCurrentValue() {
